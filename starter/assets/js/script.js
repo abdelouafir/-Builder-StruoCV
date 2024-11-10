@@ -84,8 +84,18 @@ BtnPrsonelNext.addEventListener('click',() => {
     </div>
 
         `
-        FormExpirienceadd.appendChild(NewWorkExpirence)
+        FormExpirienceadd.appendChild(NewWorkExpirence);
+
     }) 
+   
+        let Nom = document.getElementById("Nom");
+        let job = document.getElementById("job");
+        let gimaille = document.getElementById("gimaille");
+        let telephone = document.getElementById("telephone");
+        Nom.innerHTML = FirstName.value ; 
+        gimaille.innerHTML = email.value;
+        telephone.innerHTML = Phone.value ;     
+    // console.log(FirstName.value,LastName.value,email.value,city.value,Phone.value);
 })
 
 //LES education form
@@ -157,7 +167,22 @@ BtnExpirienceNext.addEventListener('click' , () => {
         `
         FormEtudientAdd.appendChild(NewEtudent)
     })
+    let JobTitle = document.getElementById("Job-Title");
+    let  Employer = document.getElementById("Employer");
+    let Location = document.getElementById("Location");
+    let workSom = document.getElementById("workSom");
 
+    
+    let expi = document.getElementById("expi");
+    let title_job = document.getElementById("title-job");
+    let Emplo = document.getElementById("Emplo");
+    let discr = document.getElementById("discr");
+
+    title_job.innerHTML = JobTitle.value; 
+    // Emplo.innerHTML = Employer.value;
+    discr.innerHTML = workSom.value
+
+    console.log(workSom.value)
 })
 
 // les skille form
@@ -209,14 +234,41 @@ BtnetudentNext.addEventListener('click',() => {
         `
         FormSkilleAdd.appendChild(newSkils)
     })
+    let etud = document.getElementById("etud");
+    let SchoolName = document.getElementById("School-Name");
+    let  SchoolLocation = document.getElementById("School-Location");
+    let FieldOfStudy = document.getElementById("Field-of-Study");
+
+     etud.innerHTML= `
+     <p> Bachelor of ${FieldOfStudy.value}
+    University of ${SchoolName.value} - 2013 to 2017 </p>
+     `
+    // Bachelor of Science in Computer Science
+    // University of Technology - 2013 to 2017
 })
 
-// let btnSkillNext = document.getElementById("btnSkillNext"); //button skille next 
-// let FormSomary = document.getElementById("FormSomary"); //form de somary
-// btnSkillNext.addEventListener('click',() => {
-//     FormSomary.classList.remove('hidden');
-//     FormSkille.classList.add('hidden');
-// })
+let btnSkillNext = document.getElementById("btnSkillNext"); //button skille next 
+let FormSomary = document.getElementById("FormSomary"); //form de somary
+btnSkillNext.addEventListener('click',() => {
+  FormSomary.classList.remove("hidden");
+  FormSkille.classList.add('hidden');
+
+  let Skill_1 = document.getElementById("Skill-1") ;
+  let Skill_2  = document.getElementById("Skill-2");
+  let Skill_3  = document.getElementById("Skill-3");
+  let Skill_4  = document.getElementById("Skill-4");
+  // console.log(Skill_1.value,Skill_2.value,Skill_3.value,Skill_4.value);
+  let sk1 = document.getElementById("sk1");
+  let sk2 = document.getElementById("sk2");
+  let sk3 = document.getElementById("sk3");
+  let sk4 = document.getElementById("sk4");
+
+  sk1.innerHTML = Skill_1.value;
+  sk2.innerHTML = Skill_2.value;
+  sk3.innerHTML = Skill_3.value;
+  sk4.innerHTML = Skill_4.value;
+
+})
 
 
 

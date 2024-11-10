@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="/src/output.css">
 </head>
 <body>
-<section class="prransipal">
+ 
   
+
+    
+<section class="prransipal">
   <section id="choix" class="text-gray-600 body-font ">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap -mx-4 -mb-10 text-center ">
@@ -41,14 +44,14 @@
   
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
-            <label  for="first-name" class="block text-sm/6 font-medium text-gray-900">First name</label>
+            <label  for="first-name" class="block text-sm/6 font-medium text-gray-900">First name et Last name</label>
             <div class="mt-2">
               <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
             </div>
           </div>
   
           <div class="sm:col-span-3">
-            <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last name</label>
+            <label for="last-name" class="block text-sm/6 font-medium text-gray-900"></label>
             <div class="mt-2">
               <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
             </div>
@@ -135,7 +138,7 @@
           <div class="sm:col-span-6">
             <label for="Work-Summary" class="block text-sm/6 font-medium text-gray-900">Work Summary</label>
             <div class="mt-2">
-              <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" name="End-date" id="Work-Summary" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"> hello</textarea> 
+              <textarea id="workSom" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" name="End-date" id="Work-Summary" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"> </textarea> 
             </div>
           </div>
         </div>
@@ -267,14 +270,77 @@
   </form>
   
   <!--skills end  -->
-  
-  
-  
+
+  <!-- cv 2 -->
+  <section class="bg-gray-100 text-gray-800 hidden" id="FormSomary">
+    <div class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+        <!-- Header -->
+        <header class="flex flex-col items-center">
+            <h1 id="Nom" class="text-4xl font-bold text-gray-900">Nom et prenom</h1>
+            <p id="job" class="text-lg text-gray-700">job title</p>
+            <div class="mt-2 text-gray-600">
+                <p id="gimaille">Email: <a href="mailto:johndoe@example.com" class="text-blue-500">johndoe@example.com</a></p>
+                <p id="telephone">Phone: (123) 456-7890</p>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section class="mt-8">
+            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Summary</h2>
+            <p class="mt-4 text-gray-700">summary</p>
+        </section>
+
+        <!-- Skills -->
+        <section class="mt-8">
+            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Skills</h2>
+            <ul class="grid grid-cols-2 gap-4 mt-4 text-gray-700">
+                <li id="sk1">skils 1</li>
+                <li id="sk2">skils 2</li>
+                <li id="sk3">skils 3</li>
+                <li id="sk4">skils 4</li>
+            </ul>
+        </section>
+
+        <!-- Experience -->
+        <section class="mt-8 ">
+            <h2 id="expi" class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Experience</h2>
+            <div class="mt-4">
+                <!-- <h3 id="title-job" class="text-lg font-semibold text-gray-800">title job</h3>
+                <p id="Emplo" class="text-gray-600">Employer</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2">
+                    <li>Work Summary</li>
+                    <!-- <li>Work Summary</li>
+                    <li>Work Summary</li> -->
+                </ul> 
+            </div>
+            <div class="mt-4">
+                <h3 id="title-job" class="text-lg font-semibold text-gray-800">Full-Stack Developer</h3>
+                <p class="text-gray-600">ABC Corp - Jan 2017 to Dec 2019</p>
+                <ul class="list-disc list-inside text-gray-700 mt-2">
+                    <li style="list-style: none" id="discr">Developed and maintained full-stack applications using MERN stack.</li>
+                    <!-- <li>Implemented responsive web designs and ensured cross-browser compatibility.</li>
+                    <li>Collaborated with design teams to optimize UI/UX.</li> -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="mt-8">
+            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Education</h2>
+            <p id="etud" class="mt-4 text-gray-700">
+                Bachelor of Science in Computer Science<br>
+                University of Technology - 2013 to 2017
+            </p>
+        </section>
+    </div>
+</section>
+
   
   <!-- script java sceipt -->
    <script src="/starter/assets/js/script.js"></script>
 </section>
 
 </body>
+
 
 </html>
