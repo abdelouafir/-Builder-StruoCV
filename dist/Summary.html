@@ -6,68 +6,90 @@
     <title>testing</title>
     <link rel="stylesheet" href="/src/output.css">
 </head>
-<section class="bg-gray-100 text-gray-800">
-    <div class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
-        <!-- Header -->
-        <header class="flex flex-col items-center">
-            <h1 class="text-4xl font-bold text-gray-900">Nom et prenom</h1>
-            <p class="text-lg text-gray-700">job title</p>
-            <div class="mt-2 text-gray-600">
-                <p>Email: <a href="mailto:johndoe@example.com" class="text-blue-500">johndoe@example.com</a></p>
-                <p>Phone: (123) 456-7890</p>
-            </div>
-        </header>
-
-        <!-- Summary -->
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Summary</h2>
-            <p class="mt-4 text-gray-700">summary</p>
-        </section>
-
-        <!-- Skills -->
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Skills</h2>
-            <ul class="grid grid-cols-2 gap-4 mt-4 text-gray-700">
-                <li>skils 1</li>
-                <li>skils 2</li>
-                <li>skils 3</li>
-                <li>skils R</li>
-            </ul>
-        </section>
-
-        <!-- Experience -->
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Experience</h2>
-            <div class="mt-4">
-                <h3 class="text-lg font-semibold text-gray-800">title job</h3>
-                <p class="text-gray-600">Employer</p>
-                <ul class="list-disc list-inside text-gray-700 mt-2">
-                    <li>Work Summary</li>
-                    <li>Work Summary</li>
-                    <li>Work Summary</li>
-                </ul>
-            </div>
-            <div class="mt-4">
-                <h3 class="text-lg font-semibold text-gray-800">Full-Stack Developer</h3>
-                <p class="text-gray-600">ABC Corp - Jan 2017 to Dec 2019</p>
-                <ul class="list-disc list-inside text-gray-700 mt-2">
-                    <li>Developed and maintained full-stack applications using MERN stack.</li>
-                    <li>Implemented responsive web designs and ensured cross-browser compatibility.</li>
-                    <li>Collaborated with design teams to optimize UI/UX.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="mt-8">
-            <h2 class="text-2xl font-semibold text-gray-900 border-b border-gray-300 pb-2">Education</h2>
-            <p class="mt-4 text-gray-700">
-                Bachelor of Science in Computer Science<br>
-                University of Technology - 2013 to 2017
-            </p>
-        </section>
+<body>
+  <div class="cv mx-auto p-4 max-w-4xl bg-gray-100 text-gray-800 rounded-lg shadow-lg">
+    <div class="cv-row grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="cv-wrap col-span-2 space-y-8">
+        <div>
+          <div class="text-3xl font-bold">Your Name</div>
+          <div class="text-xl font-semibold text-indigo-600">Senior Frontend Developer</div>
+        </div>
+  
+        <div class="cv-content">
+          <div class="head-title text-2xl font-semibold mb-4 text-gray-700">Experience</div>
+          
+          <div class="cv-content-item space-y-2 border-b border-gray-300 pb-4 mb-4">
+            <div class="title font-semibold text-lg">Senior Frontend Developer</div>
+            <div class="subtitle text-gray-600">Enterprise Name</div>
+            <div class="time text-sm text-gray-500">Aug 2020 - Present - 1 year, Paris</div>
+            <div class="experience text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+          </div>
+          
+          <!-- Repeat for other experience items as needed -->
+          
+        </div>
+        
+        <div class="cv-content">
+          <div class="head-title text-2xl font-semibold mb-4 text-gray-700">Education</div>
+          
+          <div class="cv-content-item space-y-2 border-b border-gray-300 pb-4 mb-4">
+            <div class="title font-semibold text-lg">Front-End Development Courses from W3C</div>
+            <div class="subtitle text-gray-600">Enterprise Name</div>
+            <div class="time text-sm text-gray-500">Aug 2017 - Present - 3 years, Turkey</div>
+            <div class="experience text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ante pulvinar, consectetur ante et.</div>
+          </div>
+          
+          <!-- Repeat for other education items as needed -->
+          
+        </div>
+      </div>
+      
+      <div class="cv-wrap space-y-8">
+        <div class="avatar flex justify-center">
+          <img src="https://image-aws-us-west-2.vsco.co/04d5df/155672998/5ee7bf4f43a34b5b3c000002/720x960/vsco5ee7bf53b94de.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full border-4 border-indigo-600">
+        </div>
+  
+        <div class="info text-center">
+          <div class="title text-2xl font-semibold mb-2">Contact</div>
+          <p><a href="mailto:info@yourmail.com" class="text-indigo-600">info@yourmail.com</a></p>
+          <p><a href="tel:+905555554444" class="text-indigo-600">+90 555 444 1500</a></p>
+        </div>
+  
+        <div class="cv-skills">
+          <div class="head-title text-xl font-semibold mb-2 text-gray-700">Primary Skills</div>
+          <div class="cv-skills-item flex flex-wrap gap-2">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">HTML</span>
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">CSS</span>
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">JavaScript</span>
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm">PHP</span>
+          </div>
+        </div>
+  
+        <div class="cv-skills">
+          <div class="head-title text-xl font-semibold mb-2 text-gray-700">Secondary Skills</div>
+          <div class="cv-skills-item flex flex-wrap gap-2">
+            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">jQuery</span>
+            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">AJAX</span>
+            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">Bower</span>
+            <!-- Add more secondary skills here -->
+          </div>
+        </div>
+  
+        <div class="cv-social flex justify-center space-x-4">
+          <a href="#" title="Github" class="text-gray-500 hover:text-indigo-600">
+            <!-- Github Icon -->
+          </a>
+          <a href="#" title="Codepen" class="text-gray-500 hover:text-indigo-600">
+            <!-- Codepen Icon -->
+          </a>
+          <!-- Add more social icons as needed -->
+        </div>
+      </div>
     </div>
-</section>
+  </div>
+  
+</div>
+</body>
 </html>
 
 

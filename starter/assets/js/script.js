@@ -10,20 +10,36 @@ let city = document.getElementById ("city");
 let Phone = document.getElementById ("Phone");
 let BtnPrsonelNext = document.getElementById ("InfoPrsonel");//button pirsonillle next
 
+let default_radio_1 = document.getElementById("default-radio-1");
+let default_radio_2 = document.getElementById("default-radio-2");
+let btnchoix = document.getElementById("CChoix");
+
+let radioselected = document.querySelector('input[name="default-radio"]:checked').value;
+// btnchoix.addEventListener('click',() => {
+//   console.log(default_radio_1.value,default_radio_2.value)
+// })
+
 
 //pronder un choix 
 let Formchoix = document.getElementById("choix"); //le premer form 
 let BtnChoix = document.getElementById("BtnChoix");//le button choix 
-BtnChoix.addEventListener('click',() => {
+btnchoix.addEventListener('click',() => {
     Formchoix.classList.add('hidden');
     FormPirsonelle.classList.remove("hidden");
+    console.log(radioselected)
 })
 
-//les expirience form
 
+// BtnChoix.addEventListener('click',() => {
+//     Formchoix.classList.add('hidden');
+//     FormPirsonelle.classList.remove("hidden");
+// })
+
+//les expirience form
 BtnExpirienceNext = document.getElementById("btn-expieince");//button expirince next 
 let FormExpirience = document.getElementById("FormExpirience"); //form expirince
-let FormExpirienceadd = document.getElementById("FormExpirienceadd")
+let FormExpirienceadd = document.getElementById("FormExpirienceadd");
+// let copyFormex =  FormExpirienceadd.cloneNode(true);
 BtnPrsonelNext.addEventListener('click',() => {
     let AddWork = document.getElementById("AddWork"); // button ajoutee un new work 
     FormPirsonelle.classList.add("hidden");
@@ -65,7 +81,6 @@ BtnPrsonelNext.addEventListener('click',() => {
               <input type="date" name="Start-date" id="Start-date" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
             </div>
           </div>
-  
           <div class="sm:col-span-1">
             <label for="End-date" class="block text-sm/6 font-medium text-gray-900">End date</label>
             <div class="mt-2">
@@ -82,19 +97,25 @@ BtnPrsonelNext.addEventListener('click',() => {
         </div>
       </div>
     </div>
-
         `
         FormExpirienceadd.appendChild(NewWorkExpirence);
-
     }) 
    
         let Nom = document.getElementById("Nom");
-        let job = document.getElementById("job");
+        let namemodirn = document.getElementById("namemodirn");
         let gimaille = document.getElementById("gimaille");
         let telephone = document.getElementById("telephone");
+
+        let gmailModirn = document.getElementById("gmailModirn");
+        let telModirn = document.getElementById("telModirn");
+
         Nom.innerHTML = FirstName.value ; 
+        namemodirn.innerHTML = FirstName.value;
         gimaille.innerHTML = email.value;
-        telephone.innerHTML = Phone.value ;     
+        gmailModirn.innerHTML = email.value;
+        telephone.innerHTML = Phone.value ; 
+        telModirn.innerHTML = Phone.value;   
+
     // console.log(FirstName.value,LastName.value,email.value,city.value,Phone.value);
 })
 
@@ -171,18 +192,35 @@ BtnExpirienceNext.addEventListener('click' , () => {
     let  Employer = document.getElementById("Employer");
     let Location = document.getElementById("Location");
     let workSom = document.getElementById("workSom");
-
+    let StartDate = document.getElementById("Start-date");
+    let EndDate = document.getElementById("End-date");
     
-    let expi = document.getElementById("expi");
+    let jobex = document.getElementById("jobex");
+    let entrepriseName= document.getElementById("entrepriseName")
     let title_job = document.getElementById("title-job");
-    let Emplo = document.getElementById("Emplo");
-    let discr = document.getElementById("discr");
+    let jobModirn = document.getElementById("jobModirn");
+    let jobexpirnceMod = document.getElementById("jobexpirnceMod");
+    let dateEta = document.getElementById("date-eta");
+    let workSommm = document.getElementById("workSommm");
+
+
 
     title_job.innerHTML = JobTitle.value; 
-    // Emplo.innerHTML = Employer.value;
-    discr.innerHTML = workSom.value
+    jobModirn.innerHTML = JobTitle.value;
+    jobexpirnceMod.innerHTML = JobTitle.value;
+    jobex.innerHTML=`
+    ${JobTitle.value} at ${Employer.value} a ${Location.value}<br>
+    fubryari ${StartDate.value} - match ${EndDate.value}
+    `
+    entrepriseName.innerHTML = Employer.value;
+    dateEta.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${Location.value}`
+    workSommm.innerHTML = workSom.value ;
+    
+    // // Emplo.innerHTML = Employer.value;
+    // discr.innerHTML = workSom.value
 
-    console.log(workSom.value)
+
+    console.log(workSom.value);
 })
 
 // les skille form
@@ -238,20 +276,45 @@ BtnetudentNext.addEventListener('click',() => {
     let SchoolName = document.getElementById("School-Name");
     let  SchoolLocation = document.getElementById("School-Location");
     let FieldOfStudy = document.getElementById("Field-of-Study");
+    let StartDate = document.getElementById("Start-date");
+    let EndDate = document.getElementById("End-date");
+    let etudDiscription = document.getElementById("etudDiscription")
+
+
+    let bronch = document.getElementById("bronch");
+    let icoule = document.getElementById("icoule");
+    let stareTud = document.getElementById("stareTud");
+    let endEtud = document.getElementById("endEtud");
 
      etud.innerHTML= `
-     <p> Bachelor of ${FieldOfStudy.value}
-    University of ${SchoolName.value} - 2013 to 2017 </p>
+     <p> ${SchoolName.value} - ${SchoolLocation.value} <br> 
+     ${FieldOfStudy.value} <br>
+     ${StartDate.value} to ${EndDate.value} </p>
      `
+     bronch.innerHTML = FieldOfStudy.value;
+     icoule.innerHTML = SchoolLocation.value;
+     stareTud.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${SchoolLocation.value}` ;
+     endEtud.innerHTML = etudDiscription.value;
+     
+     
+
     // Bachelor of Science in Computer Science
     // University of Technology - 2013 to 2017
+   
 })
 
 let btnSkillNext = document.getElementById("btnSkillNext"); //button skille next 
 let FormSomary = document.getElementById("FormSomary"); //form de somary
+let cvmodirn = document.getElementById("cvmodirn");
 btnSkillNext.addEventListener('click',() => {
-  FormSomary.classList.remove("hidden");
-  FormSkille.classList.add('hidden');
+  if(choix == 1){
+    FormSomary.classList.remove("hidden");
+    FormSkille.classList.add('hidden');
+  }
+  else{
+    cvmodirn.classList.remove("hidden");
+    FormSkille.classList.add('hidden');
+  }
 
   let Skill_1 = document.getElementById("Skill-1") ;
   let Skill_2  = document.getElementById("Skill-2");
@@ -263,12 +326,41 @@ btnSkillNext.addEventListener('click',() => {
   let sk3 = document.getElementById("sk3");
   let sk4 = document.getElementById("sk4");
 
+  let SK1 = document.getElementById("SK1");
+  let SK2 = document.getElementById("SK2");
+  let SK3 = document.getElementById("SK3");
+  let SK4 = document.getElementById("SK4");
+
+  
+
   sk1.innerHTML = Skill_1.value;
   sk2.innerHTML = Skill_2.value;
   sk3.innerHTML = Skill_3.value;
   sk4.innerHTML = Skill_4.value;
 
+  SK1.innerHTML = Skill_1.value;
+  SK2.innerHTML = Skill_2.value;
+  SK3.innerHTML = Skill_3.value;
+  SK4.innerHTML = Skill_4.value;
+
+
+    let btndwlond = document.getElementById("btndwlond");
+   btndwlond.addEventListener('click', async function () {
+      const content = document.getElementById('FormSomary'); 
+      const filename = 'my-cv.pdf';
+  
+      const options = {
+          margin: 1,
+          filename: filename,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+  
+      try {
+          await html2pdf().set(options).from(content).save();
+      } catch (error) {
+          console.error('false:', error.message);
+      }
+  });
 })
-
-
-
