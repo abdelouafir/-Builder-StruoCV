@@ -14,19 +14,20 @@ let default_radio_1 = document.getElementById("default-radio-1");
 let default_radio_2 = document.getElementById("default-radio-2");
 let btnchoix = document.getElementById("CChoix");
 
-let radioselected = document.querySelector('input[name="default-radio"]:checked').value;
+
 // btnchoix.addEventListener('click',() => {
 //   console.log(default_radio_1.value,default_radio_2.value)
 // })
-
 
 //pronder un choix 
 let Formchoix = document.getElementById("choix"); //le premer form 
 let BtnChoix = document.getElementById("BtnChoix");//le button choix 
 btnchoix.addEventListener('click',() => {
+  // let radioselected = document.querySelector('input[name="default-radio"]:checked');
+    
     Formchoix.classList.add('hidden');
     FormPirsonelle.classList.remove("hidden");
-    console.log(radioselected)
+ 
 })
 
 
@@ -36,14 +37,57 @@ btnchoix.addEventListener('click',() => {
 // })
 
 //les expirience form
-BtnExpirienceNext = document.getElementById("btn-expieince");//button expirince next 
+let BtnExpirienceNext = document.getElementById("btn-expieince");//button expirince next 
 let FormExpirience = document.getElementById("FormExpirience"); //form expirince
 let FormExpirienceadd = document.getElementById("FormExpirienceadd");
 // let copyFormex =  FormExpirienceadd.cloneNode(true);
 BtnPrsonelNext.addEventListener('click',() => {
     let AddWork = document.getElementById("AddWork"); // button ajoutee un new work 
+    let validNome = /\w+\s\w+/;
+    let Email = /\w+@gmail.com/;
+    let cityV = /\w+/;
+    let PhoneV = /\d{10}/
+    
+    let validName = validNome.test(FirstName.value);
+    let validemeil = Email.test(email.value);
+    let validcity = cityV.test(city.value);
+    let validPhone = PhoneV.test(Phone.value)
+    //les message erore 
+    let messagename = document.getElementById("messagename");
+    let messageemele = document.getElementById("messageemele");
+    let messagecity = document.getElementById("messagecity");
+    let messagephone = document.getElementById("messagephone");
+
+    
+    if( validName === false ||
+      validemeil === false ||
+      validcity === false ||
+      validPhone === false
+    ){
+      if(validName === false){
+        messagename.textContent = 'entrez la nome et leprinome ex (nome prenome)'
+        messagename.style.color ="red";
+      }
+      if(validemeil === false) {
+        messageemele.textContent = 'entrez la emile complit ex (nome@gmail.com)';
+        messageemele.style.color = "red"
+      }
+      if(validcity === false){
+        messagecity.textContent = 'entrez city corct'
+        messagecity.style.color = 'red'
+      }
+      if(validPhone === false){
+        messagephone.textContent = 'entre number de telephon corct (0666865432)'
+        messagephone.style.color = 'red'
+      }
+      
+    }
+
+  else{
     FormPirsonelle.classList.add("hidden");
     FormExpirience.classList.remove("hidden");
+  }
+   
     AddWork.addEventListener('click',() => {
         let NewWorkExpirence = document.createElement("div");
         NewWorkExpirence.classList.add("new-expirence");
@@ -116,6 +160,8 @@ BtnPrsonelNext.addEventListener('click',() => {
         telephone.innerHTML = Phone.value ; 
         telModirn.innerHTML = Phone.value;   
 
+        
+
     // console.log(FirstName.value,LastName.value,email.value,city.value,Phone.value);
 })
 
@@ -124,8 +170,74 @@ let FormEtudientAdd = document.getElementById("FormEtudientAdd")
 let AddNewEtudent = document.getElementById("AddNewEtudent")
 let FormEtudient = document.getElementById("FormEtudient"); //form etudent 
 BtnExpirienceNext.addEventListener('click' , () => {
+
+
+  let JobTitle = document.getElementById("Job-Title");
+  let  Employer = document.getElementById("Employer");
+  let Location = document.getElementById("Location");
+  let workSom = document.getElementById("workSom");
+  let StartDate = document.getElementById("Start-date");
+  let EndDate = document.getElementById("End-date");
+  
+  let jobex = document.getElementById("jobex");
+  let entrepriseName= document.getElementById("entrepriseName")
+  let title_job = document.getElementById("title-job");
+  let jobModirn = document.getElementById("jobModirn");
+  let jobexpirnceMod = document.getElementById("jobexpirnceMod");
+  let dateEta = document.getElementById("date-eta");
+  let workSommm = document.getElementById("workSommm");
+    
+  let job = /\w+\s\w+/;
+  let loc = /\w+/;
+  let sommary = /\w+/
+
+
+//message erore 
+let messageerorejob = document.getElementById("messageerorejob");
+let Emploessage = document.getElementById("Emploessage");
+let LocationMessage = document.getElementById("LocationMessage");
+let wormessage = document.getElementById("wormessage")
+
+
+  let validName = loc.test(JobTitle.value);
+  let validemployer = loc.test(Employer.value);
+  let validLocation = loc.test(Location.value);
+  let validsommerwork = sommary.test(workSommm.value)
+
+   if(validName === false || 
+    validemployer === false  ||
+    validLocation === false ||
+    validsommerwork === false 
+    // StartDate.value < 2023 ||
+    // EndDate.value < StartDate
+   )
+    {
+     if(validName === false){
+      messageerorejob.textContent = 'entrer title de job corct ex (divloper wp)'
+      messageerorejob.style.color = 'red';
+     }
+     if(validemployer === false){
+      Emploessage.textContent = 'entrer un mo corict +5 carcter'
+      Emploessage.style.color = 'red'
+     }
+     if(validLocation === false ){
+      LocationMessage.textContent = 'entrer un mo corict +5 carcter'
+      LocationMessage.style.color = 'red'
+     }
+     if(validsommerwork === false ){
+      wormessage.textContent = 'entrer discrption plus 10 mos'
+      wormessage.style.color = 'red'
+     }
+   
+   }
+   else{
     FormExpirience.classList.add("hidden");
     FormEtudient.classList.remove("hidden");
+   }
+  
+
+    
+  
     AddNewEtudent.addEventListener('click',() => {
         let NewEtudent = document.createElement('div');
         NewEtudent.classList.add("NewEtuden")
@@ -186,22 +298,10 @@ BtnExpirienceNext.addEventListener('click' , () => {
             </div>
           </div>
         `
+
         FormEtudientAdd.appendChild(NewEtudent)
     })
-    let JobTitle = document.getElementById("Job-Title");
-    let  Employer = document.getElementById("Employer");
-    let Location = document.getElementById("Location");
-    let workSom = document.getElementById("workSom");
-    let StartDate = document.getElementById("Start-date");
-    let EndDate = document.getElementById("End-date");
-    
-    let jobex = document.getElementById("jobex");
-    let entrepriseName= document.getElementById("entrepriseName")
-    let title_job = document.getElementById("title-job");
-    let jobModirn = document.getElementById("jobModirn");
-    let jobexpirnceMod = document.getElementById("jobexpirnceMod");
-    let dateEta = document.getElementById("date-eta");
-    let workSommm = document.getElementById("workSommm");
+   
 
 
 
@@ -230,7 +330,7 @@ let FormSkille = document.getElementById("FormSkille"); //form skille
 let FormSkilleAdd = document.getElementById("FormSkilleAdd");
 BtnetudentNext.addEventListener('click',() => {
     FormSkille.classList.remove('hidden');
-    FormEtudient.classList.add("hidden")
+    FormEtudient.classList.add("hidden");
     btnAddSkils.addEventListener('click', () => {
         let newSkils = document.createElement('div');
         newSkils.classList.add("newSkils");
@@ -307,14 +407,6 @@ let btnSkillNext = document.getElementById("btnSkillNext"); //button skille next
 let FormSomary = document.getElementById("FormSomary"); //form de somary
 let cvmodirn = document.getElementById("cvmodirn");
 btnSkillNext.addEventListener('click',() => {
-  if(choix == 1){
-    FormSomary.classList.remove("hidden");
-    FormSkille.classList.add('hidden');
-  }
-  else{
-    cvmodirn.classList.remove("hidden");
-    FormSkille.classList.add('hidden');
-  }
 
   let Skill_1 = document.getElementById("Skill-1") ;
   let Skill_2  = document.getElementById("Skill-2");
@@ -331,6 +423,84 @@ btnSkillNext.addEventListener('click',() => {
   let SK3 = document.getElementById("SK3");
   let SK4 = document.getElementById("SK4");
 
+
+  //message erore 
+  let skillmessage = document.getElementById("skillmessage")
+  let skillmessage2 = document.getElementById("skillmessage2")
+  let skillmessage3= document.getElementById("skillmessage3")
+  let skillmessage4 = document.getElementById("skillmessage4")
+
+  let loc = /\w+/;
+
+  
+  let eroreskill = loc.test(Skill_1.value);
+  let eroreskill2 = loc.test(Skill_2.value);
+  let eroreskill3 = loc.test(Skill_3.value);
+  let eroreskill4 = loc.test(Skill_4.value)
+ 
+  let radioselected = document.querySelector('input[name="default-radio"]:checked');
+ if(radioselected.value === 'clasic'){
+  if( eroreskill === false ||
+    eroreskill2 === false ||
+    eroreskill3 === false ||
+    eroreskill4 === false
+    
+  ){
+    if(eroreskill === false){
+      skillmessage.textContent ='entrez cette skille en corict'
+      skillmessage.style.color = 'red'
+    }
+    if( eroreskill2 === false ){
+      skillmessage2.textContent ='entrez cette skille en corict'
+      skillmessage2.style.color = 'red'
+    }
+    if( eroreskill3 === false ){
+      skillmessage3.textContent ='entrez cette skille en corict'
+      skillmessage3.style.color = 'red'
+    }
+    if(eroreskill4 === false){
+      skillmessage4.textContent ='entrez cette skille en corict'
+      skillmessage4.style.color = 'red'
+    }
+
+  }
+  else{
+    FormSomary.classList.remove("hidden");
+    FormSkille.classList.add('hidden');}
+}
+else if (radioselected.value === 'modirn'){
+  if( eroreskill === false ||
+    eroreskill2 === false ||
+    eroreskill3 === false ||
+    eroreskill4 === false
+    
+  ){
+    if(eroreskill === false){
+      skillmessage.textContent ='entrez cette skille en corict'
+      skillmessage.style.color = 'red'
+    }
+    if( eroreskill2 === false ){
+      skillmessage2.textContent ='entrez cette skille en corict'
+      skillmessage2.style.color = 'red'
+    }
+    if( eroreskill3 === false ){
+      skillmessage3.textContent ='entrez cette skille en corict'
+      skillmessage3.style.color = 'red'
+    }
+    if(eroreskill4 === false){
+      skillmessage4.textContent ='entrez cette skille en corict'
+      skillmessage4.style.color = 'red'
+    }
+
+  }
+  else{
+    cvmodirn.classList.remove("hidden");
+    FormSkille.classList.add('hidden');;}
+ 
+}
+
+
+
   
 
   sk1.innerHTML = Skill_1.value;
@@ -339,13 +509,37 @@ btnSkillNext.addEventListener('click',() => {
   sk4.innerHTML = Skill_4.value;
 
   SK1.innerHTML = Skill_1.value;
-  SK2.innerHTML = Skill_2.value;
+  // SK2.innerHTML = Skill_2.value;
   SK3.innerHTML = Skill_3.value;
   SK4.innerHTML = Skill_4.value;
 
 
     let btndwlond = document.getElementById("btndwlond");
-   btndwlond.addEventListener('click', async function () {
+    let btndwlondclss = document.getElementById("btndwlondclss")
+
+
+
+
+    btndwlondclss.addEventListener('click', async function () {
+        const content = document.getElementById('cvmodirn'); 
+        const filename = 'my-cv.pdf';
+    
+        const options = {
+            margin: 1,
+            filename: filename,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        try {
+            await html2pdf().set(options).from(content).save();
+        } catch (error) {
+            console.error('false:', error.message);
+        }
+    });
+
+
+    btndwlond.addEventListener('click', async function () {
       const content = document.getElementById('FormSomary'); 
       const filename = 'my-cv.pdf';
   
@@ -356,7 +550,6 @@ btnSkillNext.addEventListener('click',() => {
           html2canvas: { scale: 2 },
           jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
-  
       try {
           await html2pdf().set(options).from(content).save();
       } catch (error) {
@@ -364,3 +557,7 @@ btnSkillNext.addEventListener('click',() => {
       }
   });
 })
+
+
+
+
