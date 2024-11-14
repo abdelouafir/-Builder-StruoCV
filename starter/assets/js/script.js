@@ -18,7 +18,9 @@ let btnchoix = document.getElementById("CChoix");
 // btnchoix.addEventListener('click',() => {
 //   console.log(default_radio_1.value,default_radio_2.value)
 // })
-
+let conteur = 1 ;
+let conteur1 = 1 ;
+let conteur2 = 1 ;
 //pronder un choix 
 let Formchoix = document.getElementById("choix"); //le premer form 
 let BtnChoix = document.getElementById("BtnChoix");//le button choix 
@@ -30,7 +32,10 @@ btnchoix.addEventListener('click',() => {
  
 })
 
-
+// les tablau global 
+let infoexperince = [] ;
+let infoscole = [];
+let infoskils = [];
 // BtnChoix.addEventListener('click',() => {
 //     Formchoix.classList.add('hidden');
 //     FormPirsonelle.classList.remove("hidden");
@@ -88,63 +93,18 @@ BtnPrsonelNext.addEventListener('click',() => {
     FormExpirience.classList.remove("hidden");
   }
    
+
+  //event de add neveu work expieince 
     AddWork.addEventListener('click',() => {
-        let NewWorkExpirence = document.createElement("div");
-        NewWorkExpirence.classList.add("new-expirence");
-        NewWorkExpirence.innerHTML = `
-        <div class="space-y-12 ">
-      <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base/7 font-semibold text-gray-900 text-center">Tell us about your experience</h2>
-        <p class="mt-1 text-sm/6 text-gray-600 text-center">Start with your most recent experience and work backward.</p>
-  
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div class="sm:col-span-3">
-            <label for="Job-Title" class="block text-sm/6 font-medium text-gray-900">Job Title</label>
-            <div class="mt-2">
-              <input type="text" name="Job-Title" id="Job-Title" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-3">
-            <label for="Employer" class="block text-sm/6 font-medium text-gray-900">Employer</label>
-            <div class="mt-2">
-              <input type="text" name="Employer" id="Employer" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-3">
-            <label for="Location" class="block text-sm/6 font-medium text-gray-900">Location</label>
-            <div class="mt-2">
-              <input id="Location" name="Location" type="Location" autocomplete="Location" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-2 ">
-            <label for="Start-date" class="block text-sm/6 font-medium text-gray-900">Start date</label>
-            <div class="mt-2">
-              <input type="date" name="Start-date" id="Start-date" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-          <div class="sm:col-span-1">
-            <label for="End-date" class="block text-sm/6 font-medium text-gray-900">End date</label>
-            <div class="mt-2">
-              <input type="date" name="End-date" id="End-date" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-6">
-            <label for="Work-Summary" class="block text-sm/6 font-medium text-gray-900">Work Summary</label>
-            <div class="mt-2">
-              <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" name="End-date" id="Work-Summary" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"> hello</textarea> 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-        `
-        FormExpirienceadd.appendChild(NewWorkExpirence);
+      conteur++ ;
+      const nodoOriginal = document.getElementById("formcopy");
+      const nodoClonado = nodoOriginal.cloneNode(true);
+       FormExpirienceadd.appendChild(nodoClonado);
+       
+       
     }) 
-   
+
+
         let Nom = document.getElementById("Nom");
         let namemodirn = document.getElementById("namemodirn");
         let gimaille = document.getElementById("gimaille");
@@ -160,8 +120,6 @@ BtnPrsonelNext.addEventListener('click',() => {
         telephone.innerHTML = Phone.value ; 
         telModirn.innerHTML = Phone.value;   
 
-        
-
     // console.log(FirstName.value,LastName.value,email.value,city.value,Phone.value);
 })
 
@@ -169,27 +127,68 @@ BtnPrsonelNext.addEventListener('click',() => {
 let FormEtudientAdd = document.getElementById("FormEtudientAdd")
 let AddNewEtudent = document.getElementById("AddNewEtudent")
 let FormEtudient = document.getElementById("FormEtudient"); //form etudent 
+
+// event next 
 BtnExpirienceNext.addEventListener('click' , () => {
 
-
-  let JobTitle = document.getElementById("Job-Title");
-  let  Employer = document.getElementById("Employer");
-  let Location = document.getElementById("Location");
-  let workSom = document.getElementById("workSom");
-  let StartDate = document.getElementById("Start-date");
-  let EndDate = document.getElementById("End-date");
+  let JobTitle = document.querySelectorAll(".Job-Title");
+  let  Employer = document.querySelectorAll(".Employer");
+  let Location = document.querySelectorAll(".Location");
+  let workSom = document.querySelectorAll(".workSom");
+  let StartDate = document.querySelectorAll(".Start-date");
+  let EndDate = document.querySelectorAll(".End-date");
   
-  let jobex = document.getElementById("jobex");
-  let entrepriseName= document.getElementById("entrepriseName")
-  let title_job = document.getElementById("title-job");
-  let jobModirn = document.getElementById("jobModirn");
-  let jobexpirnceMod = document.getElementById("jobexpirnceMod");
-  let dateEta = document.getElementById("date-eta");
-  let workSommm = document.getElementById("workSommm");
-    
+   
+  
+
+
+  let info = {}
+
+  for (let i = 0 ; i< conteur;i++){
+    infoexperince.push(info = {
+      JobTitle : JobTitle[i].value,
+      Employer : Employer[i].value,
+      Location : Location[i].value,
+      workSom : workSom[i].value,
+      StartDate : StartDate[i].value,
+      EndDate : EndDate[i].value,
+     })
+  }
+  console.log(infoexperince)
+
+
+  
+
+  
+  let jobjob = document = document.getElementById("jobjob") //coller
+  
+
+  for(let i = 0 ;i< conteur;i++){
+  let NewWorkExpirence = document.createElement("div");
+   NewWorkExpirence.innerHTML = `
+   <div id="jobContent">
+       <h3 id="title-job" class="text-lg font-semibold text-gray-800">${JobTitle[i].value} </h3>
+       <p  id="jobex" class="text-gray-600">intitue de post ${Employer[i].value} lieu de entreperise , ${Employer[i].value},</p>
+       <p  id="jobex" class="text-gray-600">De ${StartDate[i].value} a ${EndDate[i].value} </p>
+       <p  id="jobex" class="text-gray-600">pendant mon travill cher ${Employer[i].value} j'ai divloppe  mes compitence en ${JobTitle[i].value}</p>
+   </div>
+   `
+   jobjob.appendChild(NewWorkExpirence);
+  }
+  
+
+
+  // let jobex = document.getElementById("jobex");
+  // let entrepriseName= document.getElementById("entrepriseName")
+  // let title_job = document.getElementById("title-job");
+  // let jobModirn = document.getElementById("jobModirn");
+  // let jobexpirnceMod = document.getElementById("jobexpirnceMod");
+  // let dateEta = document.getElementById("date-eta");
+  // let workSommm = document.getElementById("workSommm");
+  
   let job = /\w+\s\w+/;
   let loc = /\w+/;
-  let sommary = /\w+/
+  let sommary = /\w+/;
 
 
 //message erore 
@@ -228,7 +227,6 @@ let wormessage = document.getElementById("wormessage")
       wormessage.textContent = 'entrer discrption plus 10 mos'
       wormessage.style.color = 'red'
      }
-   
    }
    else{
     FormExpirience.classList.add("hidden");
@@ -237,90 +235,33 @@ let wormessage = document.getElementById("wormessage")
   
 
     
-  
+    // event ajout new new etudent 
     AddNewEtudent.addEventListener('click',() => {
-        let NewEtudent = document.createElement('div');
-        NewEtudent.classList.add("NewEtuden")
-        NewEtudent.innerHTML = `
-        <div class="border-b border-gray-900/10 pb-12">
-            <h2 class="text-base/7 font-semibold text-gray-900 text-center">Tell us about your education</h2>
-            <p class="mt-1 text-sm/6 text-gray-600 text-center">Enter your education experience so far, even if you have not graduated</p>
-      
-            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div class="sm:col-span-3">
-                <label for="School-Name" class="block text-sm/6 font-medium text-gray-900">School Name </label>
-                <div class="mt-2">
-                  <input type="text" name="School-Name" id="School-Name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-                </div>
-              </div>
-      
-              <div class="sm:col-span-3">
-                <label for="School-Location" class="block text-sm/6 font-medium text-gray-900">School Location</label>
-                <div class="mt-2">
-                  <input type="text" name="School-Location" id="School-Location" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-                </div>
-              </div>
-      
-              <div class="sm:col-span-3">
-                <label for="Degree" class="block text-sm/6 font-medium text-gray-900">Degree</label>
-                <div class="mt-2">
-                  <input id="Degree" name="Degree" type="Degree" autocomplete="Degree" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-                </div>
-              </div>
-  
-              <div class="sm:col-span-3">
-                <label for="Field-of-Study" class="block text-sm/6 font-medium text-gray-900">Field of Study</label>
-                <div class="mt-2">
-                  <input id="Field-of-Study" name="Field-of-Study" type="Field-of-Study" autocomplete="Field-of-Study" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-                </div>
-              </div>
-      
-              <div class="sm:col-span-2 ">
-                <label for="Start-date" class="block text-sm/6 font-medium text-gray-900">Start date</label>
-                <div class="mt-2">
-                  <input type="date" name="Start-date" id="Start-date" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-                </div>
-              </div>
-      
-              <div class="sm:col-span-1">
-                <label for="End-date" class="block text-sm/6 font-medium text-gray-900">End date</label>
-                <div class="mt-2">
-                  <input type="date" name="End-date" id="End-date" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-                </div>
-              </div>
-  
-              <div class="sm:col-span-6">
-                <label for="Work-Summary" class="block text-sm/6 font-medium text-gray-900">Description</label>
-                <div class="mt-2">
-                  <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" name="End-date" id="Work-Summary" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"> </textarea> 
-                </div>
-              </div>
-            </div>
-          </div>
-        `
+      const nodoOriginal = document.getElementById("FormEtudientcopy");
+      const nodoClonado = nodoOriginal.cloneNode(true);
+      FormEtudientAdd.appendChild(nodoClonado);
+      conteur1++;
 
-        FormEtudientAdd.appendChild(NewEtudent)
     })
-   
+    
+     
 
-
-
-    title_job.innerHTML = JobTitle.value; 
-    jobModirn.innerHTML = JobTitle.value;
-    jobexpirnceMod.innerHTML = JobTitle.value;
-    jobex.innerHTML=`
-    ${JobTitle.value} at ${Employer.value} a ${Location.value}<br>
-    fubryari ${StartDate.value} - match ${EndDate.value}
-    `
-    entrepriseName.innerHTML = Employer.value;
-    dateEta.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${Location.value}`
-    workSommm.innerHTML = workSom.value ;
+    // title_job.innerHTML = JobTitle.value; 
+    // jobModirn.innerHTML = JobTitle.value;
+    // jobexpirnceMod.innerHTML = JobTitle.value;
+    // jobex.innerHTML=`
+    // ${JobTitle.value} at ${Employer.value} a ${Location.value}<br>
+    // fubryari ${StartDate.value} - match ${EndDate.value}
+    // `
+    // entrepriseName.innerHTML = Employer.value;
+    // dateEta.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${Location.value}`
+    // workSommm.innerHTML = workSom.value ;
     
     // // Emplo.innerHTML = Employer.value;
     // discr.innerHTML = workSom.value
 
 
-    console.log(workSom.value);
+
 })
 
 // les skille form
@@ -328,73 +269,78 @@ let btnAddSkils = document.getElementById("btnAddSkils")
 let BtnetudentNext = document.getElementById("BtnetudentNext"); //button etudent next  
 let FormSkille = document.getElementById("FormSkille"); //form skille
 let FormSkilleAdd = document.getElementById("FormSkilleAdd");
+//event next
 BtnetudentNext.addEventListener('click',() => {
     FormSkille.classList.remove('hidden');
     FormEtudient.classList.add("hidden");
+    //event de ajout new experince
     btnAddSkils.addEventListener('click', () => {
-        let newSkils = document.createElement('div');
-        newSkils.classList.add("newSkils");
-        newSkils.innerHTML = `
-        <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base/7 font-semibold text-gray-900 text-center">What skills would you like to highlight?</h2>
-        <p class="mt-1 text-sm/6 text-gray-600 text-center">Add relevant professional skills</p>
-  
-        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-          <div class="sm:col-span-3">
-            <label for="Skill-1" class="block text-sm/6 font-medium text-gray-900">Skill 1 </label>
-            <div class="mt-2">
-              <input type="text" name="Skill-1" id="Skill-1" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-3">
-            <label for="Skill-2" class="block text-sm/6 font-medium text-gray-900">Skill 2</label>
-            <div class="mt-2">
-              <input type="text" name="Skill-2" id="Skill-2" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-3">
-            <label for="Skill-3" class="block text-sm/6 font-medium text-gray-900">Skill 3</label>
-            <div class="mt-2">
-              <input type="text" name="Skill-3" id="Skill-3" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-  
-          <div class="sm:col-span-3">
-            <label for="Skill-4" class="block text-sm/6 font-medium text-gray-900">Skill 4</label>
-            <div class="mt-2">
-              <input type="text" name="Skill-4" id="Skill-4" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
-            </div>
-          </div>
-      </div>
-    </div>
-        `
-        FormSkilleAdd.appendChild(newSkils)
+      const nodoOriginal = document.getElementById("skillCopy");
+      const nodoClonado = nodoOriginal.cloneNode(true);
+      conteur2++;
+      FormSkilleAdd.appendChild(nodoClonado);
+       
     })
-    let etud = document.getElementById("etud");
-    let SchoolName = document.getElementById("School-Name");
-    let  SchoolLocation = document.getElementById("School-Location");
-    let FieldOfStudy = document.getElementById("Field-of-Study");
-    let StartDate = document.getElementById("Start-date");
-    let EndDate = document.getElementById("End-date");
-    let etudDiscription = document.getElementById("etudDiscription")
+    // let etud = document.getElementById("etud");
+    let SchoolName = document.querySelectorAll(".School-Name");
+    let  SchoolLocation = document.querySelectorAll(".School-Location");
+    let FieldOfStudy = document.querySelectorAll(".Field-of-Study");
+    let StartDate = document.querySelectorAll(".start-date");
+    let EndDate = document.querySelectorAll(".end-date");
+    let etudDiscription = document.querySelectorAll(".etudDiscription");
 
 
-    let bronch = document.getElementById("bronch");
-    let icoule = document.getElementById("icoule");
-    let stareTud = document.getElementById("stareTud");
-    let endEtud = document.getElementById("endEtud");
 
-     etud.innerHTML= `
-     <p> ${SchoolName.value} - ${SchoolLocation.value} <br> 
-     ${FieldOfStudy.value} <br>
-     ${StartDate.value} to ${EndDate.value} </p>
-     `
-     bronch.innerHTML = FieldOfStudy.value;
-     icoule.innerHTML = SchoolLocation.value;
-     stareTud.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${SchoolLocation.value}` ;
-     endEtud.innerHTML = etudDiscription.value;
+  let info = {}
+
+  for (let i = 0 ; i< conteur1;i++){
+    infoscole.push(info = {
+      SchoolName : SchoolName[i].value,
+      SchoolLocation : SchoolLocation[i].value,
+      FieldOfStudy : FieldOfStudy[i].value,
+      StartDate : StartDate[i].value,
+      EndDate : EndDate[i].value,
+      etudDiscription : etudDiscription[i].value,
+     })
+  }
+  console.log(StartDate.value)
+
+
+
+
+
+  
+  
+  let scolsc = document = document.getElementById("scolsc") //coller
+  
+  console.log(conteur1);
+  for(let i = 0 ;i< conteur1;i++){
+  let NewWorkExpirence = document.createElement("div");
+   NewWorkExpirence.innerHTML = `
+     <div id="scolcoppy">
+        <h3class="mt-4 text-lg font-semibold text-gray-800"> Spécialité - ${SchoolName[i].value}, ${SchoolLocation[i].value} </h3>
+         <p id="etud" class="text-gray-600> De ${StartDate[i].value} à ${EndDate[i].value}</p>
+         <p clsse="class="text-gray-600"> J'ai terminé mes études ${SchoolName[i].value} à  dans la spécialité ${FieldOfStudy[i].value}, ce qui m'a fourni une base solide en ${FieldOfStudy[i].value},</p>
+    </div>
+   `
+   scolsc.appendChild(NewWorkExpirence);
+  }
+
+
+    // let bronch = document.getElementById("bronch");
+    // let icoule = document.getElementById("icoule");
+    // let stareTud = document.getElementById("stareTud");
+    // let endEtud = document.getElementById("endEtud");
+
+    //  etud.innerHTML= `
+    //  <p> ${SchoolName.value} - ${SchoolLocation.value} <br> 
+    //  ${FieldOfStudy.value} <br>
+    //  ${StartDate.value} to ${EndDate.value} </p>
+    //  `
+    //  bronch.innerHTML = FieldOfStudy.value;
+    //  icoule.innerHTML = SchoolLocation.value;
+    //  stareTud.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${SchoolLocation.value}` ;
+    //  endEtud.innerHTML = etudDiscription.value;
      
      
 
@@ -408,60 +354,89 @@ let FormSomary = document.getElementById("FormSomary"); //form de somary
 let cvmodirn = document.getElementById("cvmodirn");
 btnSkillNext.addEventListener('click',() => {
 
-  let Skill_1 = document.getElementById("Skill-1") ;
-  let Skill_2  = document.getElementById("Skill-2");
-  let Skill_3  = document.getElementById("Skill-3");
-  let Skill_4  = document.getElementById("Skill-4");
-  // console.log(Skill_1.value,Skill_2.value,Skill_3.value,Skill_4.value);
-  let sk1 = document.getElementById("sk1");
-  let sk2 = document.getElementById("sk2");
-  let sk3 = document.getElementById("sk3");
-  let sk4 = document.getElementById("sk4");
+  let Skill_1 = document.querySelectorAll(".Skill") ;
 
-  let SK1 = document.getElementById("SK1");
-  let SK2 = document.getElementById("SK2");
-  let SK3 = document.getElementById("SK3");
-  let SK4 = document.getElementById("SK4");
+
+
+  let info = {}
+
+  for (let i = 0 ; i< conteur2;i++){
+    infoskils.push(info = {
+      Skill_1 : Skill_1[i].value,
+      
+     })
+  }
+
+
+
+
+  let skillskill = document = document.getElementById("skilscopy") //coller
+  
+  console.log(conteur2);
+  for(let i = 0 ;i< conteur2;i++){
+  let NewWorkExpirence = document.createElement("div");
+   NewWorkExpirence.innerHTML = `
+    <div id="skilss">
+        <ul class=" mt-4 text-gray-700">
+            <li id="sk1">${Skill_1[i].value}</li>
+        </ul>
+     </div>
+   `
+   skillskill.appendChild(NewWorkExpirence);
+  }
+
+  // // let Skill_2  = document.getElementById("Skill-2");
+  // // let Skill_3  = document.getElementById("Skill-3");
+  // // let Skill_4  = document.getElementById("Skill-4");
+  // // console.log(Skill_1.value,Skill_2.value,Skill_3.value,Skill_4.value);
+  // let sk1 = document.getElementById("sk1");
+  // let sk2 = document.getElementById("sk2");
+  // let sk3 = document.getElementById("sk3");
+  // let sk4 = document.getElementById("sk4");
+  // let SK1 = document.getElementById("SK1");
+  // let SK2 = document.getElementById("SK2");
+  // let SK3 = document.getElementById("SK3");
+  // let SK4 = document.getElementById("SK4");
 
 
   //message erore 
   let skillmessage = document.getElementById("skillmessage")
-  let skillmessage2 = document.getElementById("skillmessage2")
-  let skillmessage3= document.getElementById("skillmessage3")
-  let skillmessage4 = document.getElementById("skillmessage4")
+  // let skillmessage2 = document.getElementById("skillmessage2")
+  // let skillmessage3= document.getElementById("skillmessage3")
+  // let skillmessage4 = document.getElementById("skillmessage4")
 
   let loc = /\w+/;
 
   
   let eroreskill = loc.test(Skill_1.value);
-  let eroreskill2 = loc.test(Skill_2.value);
-  let eroreskill3 = loc.test(Skill_3.value);
-  let eroreskill4 = loc.test(Skill_4.value)
+  // let eroreskill2 = loc.test(Skill_2.value);
+  // let eroreskill3 = loc.test(Skill_3.value);
+  // let eroreskill4 = loc.test(Skill_4.value)
  
   let radioselected = document.querySelector('input[name="default-radio"]:checked');
  if(radioselected.value === 'clasic'){
-  if( eroreskill === false ||
-    eroreskill2 === false ||
-    eroreskill3 === false ||
-    eroreskill4 === false
+  if( eroreskill === false 
+    // eroreskill2 === false ||
+    // eroreskill3 === false ||
+    // eroreskill4 === false
     
   ){
     if(eroreskill === false){
       skillmessage.textContent ='entrez cette skille en corict'
       skillmessage.style.color = 'red'
     }
-    if( eroreskill2 === false ){
-      skillmessage2.textContent ='entrez cette skille en corict'
-      skillmessage2.style.color = 'red'
-    }
-    if( eroreskill3 === false ){
-      skillmessage3.textContent ='entrez cette skille en corict'
-      skillmessage3.style.color = 'red'
-    }
-    if(eroreskill4 === false){
-      skillmessage4.textContent ='entrez cette skille en corict'
-      skillmessage4.style.color = 'red'
-    }
+    // if( eroreskill2 === false ){
+    //   skillmessage2.textContent ='entrez cette skille en corict'
+    //   skillmessage2.style.color = 'red'
+    // }
+    // if( eroreskill3 === false ){
+    //   skillmessage3.textContent ='entrez cette skille en corict'
+    //   skillmessage3.style.color = 'red'
+    // }
+    // if(eroreskill4 === false){
+    //   skillmessage4.textContent ='entrez cette skille en corict'
+    //   skillmessage4.style.color = 'red'
+    // }
 
   }
   else{
@@ -469,28 +444,26 @@ btnSkillNext.addEventListener('click',() => {
     FormSkille.classList.add('hidden');}
 }
 else if (radioselected.value === 'modirn'){
-  if( eroreskill === false ||
-    eroreskill2 === false ||
-    eroreskill3 === false ||
-    eroreskill4 === false
+  if( eroreskill === false 
+    
     
   ){
     if(eroreskill === false){
       skillmessage.textContent ='entrez cette skille en corict'
       skillmessage.style.color = 'red'
     }
-    if( eroreskill2 === false ){
-      skillmessage2.textContent ='entrez cette skille en corict'
-      skillmessage2.style.color = 'red'
-    }
-    if( eroreskill3 === false ){
-      skillmessage3.textContent ='entrez cette skille en corict'
-      skillmessage3.style.color = 'red'
-    }
-    if(eroreskill4 === false){
-      skillmessage4.textContent ='entrez cette skille en corict'
-      skillmessage4.style.color = 'red'
-    }
+    // if( eroreskill2 === false ){
+    //   skillmessage2.textContent ='entrez cette skille en corict'
+    //   skillmessage2.style.color = 'red'
+    // }
+    // if( eroreskill3 === false ){
+    //   skillmessage3.textContent ='entrez cette skille en corict'
+    //   skillmessage3.style.color = 'red'
+    // }
+    // if(eroreskill4 === false){
+    //   skillmessage4.textContent ='entrez cette skille en corict'
+    //   skillmessage4.style.color = 'red'
+    // }
 
   }
   else{
@@ -504,15 +477,9 @@ else if (radioselected.value === 'modirn'){
   
 
   sk1.innerHTML = Skill_1.value;
-  sk2.innerHTML = Skill_2.value;
-  sk3.innerHTML = Skill_3.value;
-  sk4.innerHTML = Skill_4.value;
-
-  SK1.innerHTML = Skill_1.value;
-  // SK2.innerHTML = Skill_2.value;
-  SK3.innerHTML = Skill_3.value;
-  SK4.innerHTML = Skill_4.value;
-
+  // sk2.innerHTML = Skill_2.value;
+  // sk3.innerHTML = Skill_3.value;
+  // sk4.innerHTML = Skill_4.value;
 
     let btndwlond = document.getElementById("btndwlond");
     let btndwlondclss = document.getElementById("btndwlondclss")
@@ -557,6 +524,7 @@ else if (radioselected.value === 'modirn'){
       }
   });
 })
+
 
 
 
