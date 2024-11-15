@@ -24,16 +24,22 @@ let conteur2 = 1 ;
 //pronder un choix 
 let Formchoix = document.getElementById("choix"); //le premer form 
 let BtnChoix = document.getElementById("BtnChoix");//le button choix 
+let step1 = document.getElementById("step1")
 btnchoix.addEventListener('click',() => {
   // let radioselected = document.querySelector('input[name="default-radio"]:checked');
-    
+    step1.style.backgroundColor = 'blue'
     Formchoix.classList.add('hidden');
     FormPirsonelle.classList.remove("hidden");
- 
+    //opiration de step 
+   
+    
 })
 
+
+//step start 
+
 // les tablau global 
-let infoexperince = [] ;
+let infoexperince = [];
 let infoscole = [];
 let infoskils = [];
 // BtnChoix.addEventListener('click',() => {
@@ -72,6 +78,8 @@ BtnPrsonelNext.addEventListener('click',() => {
       if(validName === false){
         messagename.textContent = 'entrez la nome et leprinome ex (nome prenome)'
         messagename.style.color ="red";
+      }else{
+        messagename.textContent = ''
       }
       if(validemeil === false) {
         messageemele.textContent = 'entrez la emile complit ex (nome@gmail.com)';
@@ -139,7 +147,73 @@ BtnExpirienceNext.addEventListener('click' , () => {
   let EndDate = document.querySelectorAll(".End-date");
   
    
-  
+  let job = /\w+\s\w+/;
+  let loc = /^[a-zA-Z\s]{2,30}$/;
+  let sommary = /\w+/;
+
+
+//message erore 
+let messageerorejob = document.getElementById("messageerorejob");
+let Emploessage = document.getElementById("Emploessage");
+let LocationMessage = document.getElementById("LocationMessage");
+let wormessage = document.getElementById("wormessage")
+
+for (let i = 0; i < conteur; i++) {
+  let jobTitle = JobTitle[i].value ;
+  let employer = Employer[i].value ;
+  let location = Location[i].value ;
+  let summaryWork = workSommm.value ;
+
+
+  let validName = loc.test(jobTitle);
+  let validEmployer = loc.test(employer);
+  let validLocation = loc.test(location);
+  let validSummaryWork = sommary.test(summaryWork);
+
+  // virifivation 
+  let isError = false;
+
+  if (validName == false) {
+    isError = true;
+    messageerorejob.textContent = 'Enter a valid job title, e.g., "Developer WP".';
+    messageerorejob.style.color = 'red';
+  } else {
+    messageerorejob.textContent = '';
+  }
+
+  if (validEmployer == false) {
+    isError = true;
+    Emploessage.textContent = 'Enter a valid employer name (at least 5 characters).';
+    Emploessage.style.color = 'red';
+  } else {
+    Emploessage.textContent = '';
+  }
+
+  if (validLocation == false) {
+    isError = true;
+    LocationMessage.textContent = 'Enter a valid location (at least 5 characters).';
+    LocationMessage.style.color = 'red';
+  } else {
+    LocationMessage.textContent = '';
+  }
+
+  if (validSummaryWork == false) {
+    isError = true;
+    wormessage.textContent = 'Enter a summary with at least 10 words.';
+    wormessage.style.color = 'red';
+  } else {
+    wormessage.textContent = '';
+  }
+
+
+  if (isError == false) {
+    FormExpirience.classList.add("hidden");
+    FormEtudient.classList.remove("hidden");
+  }
+}
+
+
+
 
 
   let info = {}
@@ -154,7 +228,7 @@ BtnExpirienceNext.addEventListener('click' , () => {
       EndDate : EndDate[i].value,
      })
   }
-  console.log(infoexperince)
+
 
 
   
@@ -186,52 +260,7 @@ BtnExpirienceNext.addEventListener('click' , () => {
   // let dateEta = document.getElementById("date-eta");
   // let workSommm = document.getElementById("workSommm");
   
-  let job = /\w+\s\w+/;
-  let loc = /\w+/;
-  let sommary = /\w+/;
 
-
-//message erore 
-let messageerorejob = document.getElementById("messageerorejob");
-let Emploessage = document.getElementById("Emploessage");
-let LocationMessage = document.getElementById("LocationMessage");
-let wormessage = document.getElementById("wormessage")
-
-
-  let validName = loc.test(JobTitle.value);
-  let validemployer = loc.test(Employer.value);
-  let validLocation = loc.test(Location.value);
-  let validsommerwork = sommary.test(workSommm.value)
-
-   if(validName === false || 
-    validemployer === false  ||
-    validLocation === false ||
-    validsommerwork === false 
-    // StartDate.value < 2023 ||
-    // EndDate.value < StartDate
-   )
-    {
-     if(validName === false){
-      messageerorejob.textContent = 'entrer title de job corct ex (divloper wp)'
-      messageerorejob.style.color = 'red';
-     }
-     if(validemployer === false){
-      Emploessage.textContent = 'entrer un mo corict +5 carcter'
-      Emploessage.style.color = 'red'
-     }
-     if(validLocation === false ){
-      LocationMessage.textContent = 'entrer un mo corict +5 carcter'
-      LocationMessage.style.color = 'red'
-     }
-     if(validsommerwork === false ){
-      wormessage.textContent = 'entrer discrption plus 10 mos'
-      wormessage.style.color = 'red'
-     }
-   }
-   else{
-    FormExpirience.classList.add("hidden");
-    FormEtudient.classList.remove("hidden");
-   }
   
 
     
@@ -270,25 +299,99 @@ let BtnetudentNext = document.getElementById("BtnetudentNext"); //button etudent
 let FormSkille = document.getElementById("FormSkille"); //form skille
 let FormSkilleAdd = document.getElementById("FormSkilleAdd");
 //event next
-BtnetudentNext.addEventListener('click',() => {
-    FormSkille.classList.remove('hidden');
-    FormEtudient.classList.add("hidden");
-    //event de ajout new experince
-    btnAddSkils.addEventListener('click', () => {
-      const nodoOriginal = document.getElementById("skillCopy");
-      const nodoClonado = nodoOriginal.cloneNode(true);
-      conteur2++;
-      FormSkilleAdd.appendChild(nodoClonado);
-       
-    })
-    // let etud = document.getElementById("etud");
-    let SchoolName = document.querySelectorAll(".School-Name");
-    let  SchoolLocation = document.querySelectorAll(".School-Location");
-    let FieldOfStudy = document.querySelectorAll(".Field-of-Study");
-    let StartDate = document.querySelectorAll(".start-date");
-    let EndDate = document.querySelectorAll(".end-date");
-    let etudDiscription = document.querySelectorAll(".etudDiscription");
+BtnetudentNext.addEventListener('click', () => {
+  //les variable
+  let SchoolName = document.querySelectorAll(".School-Name");
+  let SchoolLocation = document.querySelectorAll(".School-Location");
+  let FieldOfStudy = document.querySelectorAll(".Field-of-Study");
+  let StartDate = document.querySelectorAll(".start-date");
+  let EndDate = document.querySelectorAll(".end-date");
+  let etudDiscription = document.querySelectorAll(".etudDiscription");
+  let Degree = document.querySelectorAll(".Degree")
+  // let conteur1 = SchoolName.length; 
 
+
+  let scoulerr = document.getElementById("scoulerr");
+  let locationerr = document.getElementById("locationerr");
+  let legreeer = document.getElementById("legreeer");
+  let Field = document.getElementById("Field");
+  let discriptionErr = document.getElementById("discription-err"); 
+
+  let loc = /^[a-zA-Z\s]{5,}$/;
+
+  // vierifcation 
+  for (let i = 0; i < conteur1; i++) {
+    let schoolName = SchoolName[i].value;
+    let schoolLocation = SchoolLocation[i].value;
+    let fieldOfStudy = FieldOfStudy[i].value;
+    let startDate = StartDate[i].value;
+    let endDate = EndDate[i].value;
+    let description = etudDiscription[i].value ;
+    let degree = Degree[i].value;
+    let EtudDiscription = etudDiscription[i].value ; 
+
+
+    let vscolename = loc.test(schoolName)
+    let Vlocal = loc.test(schoolLocation)
+    let Vfiled = loc.test(fieldOfStudy)
+    let vdegree = loc.test(degree);
+    let VEtudDiscription = loc.test(EtudDiscription);
+
+    let isError = false;
+
+    if (vscolename == false) {
+      isError = true;
+      scoulerr.textContent = "entrez un mos corict";
+      scoulerr.style.color = "red";
+    } else {
+      scoulerr.textContent = "";
+    }
+
+    if (Vlocal == false) {
+      isError = true;
+      locationerr.textContent = "entrez un mos corict";
+      locationerr.style.color = "red";
+    } else {
+      locationerr.textContent = "";
+    }
+
+    if (vdegree == false) {
+      isError = true;
+      legreeer.textContent = "entrez  les mo corict";
+      legreeer.style.color = "red";
+    } else {
+      legreeer.textContent = "";
+    }
+    
+    if (Vfiled == false) {
+      isError = true;
+      Field.textContent = "entrez  les mo corict";
+      Field.style.color = "red";
+    } else {
+      Field.textContent = "";
+    }
+
+    // if (VEtudDiscription == false) {
+    //   isError = true;
+    //   discriptionErr.textContent = "entrez  les mo corict";
+    //   discriptionErr.style.color = "red";
+    // } else {
+    //   Field.textContent = "";
+    // }
+
+    if (isError == false) {
+      FormSkille.classList.remove('hidden');
+      FormEtudient.classList.add("hidden");
+      // infoscole.push({
+      //   SchoolName: schoolName,
+      //   SchoolLocation: schoolLocation,
+      //   FieldOfStudy: fieldOfStudy,
+      //   StartDate: startDate,
+      //   EndDate: endDate,
+      //   Description: description,
+      // });
+    }
+  }
 
 
   let info = {}
@@ -303,51 +406,27 @@ BtnetudentNext.addEventListener('click',() => {
       etudDiscription : etudDiscription[i].value,
      })
   }
-  console.log(StartDate.value)
 
+  // afficher les donner 
+  let scolsc = document.getElementById("scolsc");
+  infoscole.forEach((info) => {
+    let NewWorkExpirence = document.createElement("div");
+    NewWorkExpirence.innerHTML = `
+      <div id="scolcoppy">
+        <h3 class="mt-4 text-lg font-semibold text-gray-800">
+          Spécialité - ${info.SchoolName}, ${info.SchoolLocation}
+        </h3>
+        <p id="etud" class="text-gray-600"> De ${info.StartDate} à ${info.EndDate}</p>
+        <p class="text-gray-600">
+          J'ai terminé mes études ${info.SchoolName} dans la spécialité ${info.FieldOfStudy},
+          ce qui m'a fourni une 
+        </p>
+      </div>
+    `;
+    scolsc.appendChild(NewWorkExpirence);
+  });
+});
 
-
-
-
-  
-  
-  let scolsc = document = document.getElementById("scolsc") //coller
-  
-  console.log(conteur1);
-  for(let i = 0 ;i< conteur1;i++){
-  let NewWorkExpirence = document.createElement("div");
-   NewWorkExpirence.innerHTML = `
-     <div id="scolcoppy">
-        <h3class="mt-4 text-lg font-semibold text-gray-800"> Spécialité - ${SchoolName[i].value}, ${SchoolLocation[i].value} </h3>
-         <p id="etud" class="text-gray-600> De ${StartDate[i].value} à ${EndDate[i].value}</p>
-         <p clsse="class="text-gray-600"> J'ai terminé mes études ${SchoolName[i].value} à  dans la spécialité ${FieldOfStudy[i].value}, ce qui m'a fourni une base solide en ${FieldOfStudy[i].value},</p>
-    </div>
-   `
-   scolsc.appendChild(NewWorkExpirence);
-  }
-
-
-    // let bronch = document.getElementById("bronch");
-    // let icoule = document.getElementById("icoule");
-    // let stareTud = document.getElementById("stareTud");
-    // let endEtud = document.getElementById("endEtud");
-
-    //  etud.innerHTML= `
-    //  <p> ${SchoolName.value} - ${SchoolLocation.value} <br> 
-    //  ${FieldOfStudy.value} <br>
-    //  ${StartDate.value} to ${EndDate.value} </p>
-    //  `
-    //  bronch.innerHTML = FieldOfStudy.value;
-    //  icoule.innerHTML = SchoolLocation.value;
-    //  stareTud.innerHTML = `Aug ${StartDate.value} - Present - ${EndDate.value}, ${SchoolLocation.value}` ;
-    //  endEtud.innerHTML = etudDiscription.value;
-     
-     
-
-    // Bachelor of Science in Computer Science
-    // University of Technology - 2013 to 2017
-   
-})
 
 let btnSkillNext = document.getElementById("btnSkillNext"); //button skille next 
 let FormSomary = document.getElementById("FormSomary"); //form de somary
@@ -407,37 +486,20 @@ btnSkillNext.addEventListener('click',() => {
 
   let loc = /\w+/;
 
-  
-  let eroreskill = loc.test(Skill_1.value);
-  // let eroreskill2 = loc.test(Skill_2.value);
-  // let eroreskill3 = loc.test(Skill_3.value);
-  // let eroreskill4 = loc.test(Skill_4.value)
- 
+  for(i = 0 ;i<conteur2;i++){
+
+  }
+  let eroreskill = loc.test(Skill_1[0].value);
   let radioselected = document.querySelector('input[name="default-radio"]:checked');
  if(radioselected.value === 'clasic'){
   if( eroreskill === false 
-    // eroreskill2 === false ||
-    // eroreskill3 === false ||
-    // eroreskill4 === false
+
     
   ){
     if(eroreskill === false){
       skillmessage.textContent ='entrez cette skille en corict'
       skillmessage.style.color = 'red'
     }
-    // if( eroreskill2 === false ){
-    //   skillmessage2.textContent ='entrez cette skille en corict'
-    //   skillmessage2.style.color = 'red'
-    // }
-    // if( eroreskill3 === false ){
-    //   skillmessage3.textContent ='entrez cette skille en corict'
-    //   skillmessage3.style.color = 'red'
-    // }
-    // if(eroreskill4 === false){
-    //   skillmessage4.textContent ='entrez cette skille en corict'
-    //   skillmessage4.style.color = 'red'
-    // }
-
   }
   else{
     FormSomary.classList.remove("hidden");

@@ -5,17 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testing</title>
     <link rel="stylesheet" href="/src/output.css">
+    <link rel="stylesheet" href="/starter/assets/css/style.css">
 </head>
 <body>
  
   
-
+<section class="prransipal" id="formchoix1" style="padding: 0;">
+  <!-- stiper start  -->
+  <div class="stepper bg-slate-300 p-6 rounded-lg shadow-md mb-8">
+    <div class="flex mb-2 items-center justify-between">
+        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-slate-950 bg-blue-200">
+            Your Progress
+        </span>
+        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+            <span x-text="progress">0%</span>
+        </span>
+    </div>
+    <div class="flex mb-2">
+        <div class="w-full bg-gray-200 rounded-full h-2.5" id="step1">
+            <div :style="'width: ' + progress + '%'" class="bg-gray-600 h-2.5 rounded-full transition-all ease-in-out duration-300"></div>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2.5" id="step2">
+          <div :style="'width: ' + progress + '%'" class="bg-gray-600 h-2.5 rounded-full transition-all ease-in-out duration-300"></div>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2.5" id="step3">
+        <div :style="'width: ' + progress + '%'" class="bg-gray-600 h-2.5 rounded-full transition-all ease-in-out duration-300"></div>
+    </div>
+    <div class="w-full bg-gray-200 rounded-full h-2.5" id="step4">
+      <div :style="'width: ' + progress + '%'" class="bg-gray-600 h-2.5 rounded-full transition-all ease-in-out duration-300"></div>
+  </div>
+  <div class="w-full bg-gray-200 rounded-full h-2.5" id="step5">
+    <div :style="'width: ' + progress + '%'" class="bg-gray-600 h-2.5 rounded-full transition-all ease-in-out duration-300"></div>
+</div>
+    </div>
     
-<section class="prransipal" id="formchoix1" style="padding: 30rem;">
+</div>
+    <!-- /stiper end  -->
+
+
   <section id="choix" class="text-gray-600 body-font ">
     <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -mx-4 -mb-10 text-center ">
-        <div class="sm:w-1/2 mb-10 px-4  bg-cyan-300 hover:bg-sky-400 ">
+      <div class=" centrer flex-wrap -mx-4 -mb-10 ">
+        <!-- <div class="sm:w-1/2 mb-10 px-4  bg-cyan-300 hover:bg-sky-400 ">
           <div class="rounded-lg h-64 overflow-hidden ">
             <img alt="content" class="object-cover object-center h-full w-full mt-10" src="/starter/assets/img/cv1.png">
           </div>
@@ -25,18 +56,18 @@
             <label style="font-size: 1.5rem;" for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default radio</label>
             
         </div>
-        </div>
-        <div class="sm:w-1/2 mb-10 px-4 bg-cyan-300 hover:bg-sky-600">
-          <div class="rounded-lg h-64 overflow-hidden">
-            <img alt="content" class="object-cover object-center h-full w-full mt-10" src="/starter/assets/img/french-canadian-cv-template.jpg">
+        </div> -->
+
+        <div class="centerrr sm:w-1/2 mb-10 px-4  hover:bg-sky-600">
+          <div class="pirent rounded-lg h-64 overflow-hidden">
+            <img alt="content" class="object-cover object-center h-full w-full mt-10" src="/starter/assets/img/Screenshot 2024-11-14 123532.png">
           </div>
-          <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">The scoond form </h2>
+          <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3"> clasic </h2>
           <div class="flex items-center" id="valueId">
             <input   id="default-radio-2" type="radio" value="clasic" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label style="font-size: 1.5rem;" for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Checked state</label>
             <p id="clasicvalid"></p>
-        </div>
-        
+        </div>    
         </div>
       </div>
       <button class="" id="CChoix" style="background-color: #2ca5d5; color: white; width: 10rem;height: 3rem;border-radius: 0.5rem;margin-left: 40rem; margin-top: 2rem;">Next</button>
@@ -47,8 +78,8 @@
   <form class="p-32 hidden " id="FormPirsonelle">
     <div class="space-y-12 ">
       <div class="border-b border-gray-900/10 pb-12">
-        <h2 class="text-base/7 font-semibold text-gray-900 text-center">Personal Information</h2>
-        <p class="mt-1 text-sm/6 text-gray-600 text-center">Use a permanent address where you can receive mail.</p>
+        <h2 style="font-size: 2rem;margin-bottom: 20px;" class="text-base/7 font-semibold text-gray-900 text-center">Personal Information</h2>
+        <p  style="font-size: 2,5rem;" class="mt-1 text-sm/6 text-gray-600 text-center">Use a permanent address where you can receive mail.</p>
   
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-1 ">
           <div class="sm:col-span-4">
@@ -174,6 +205,7 @@
                 <label style="font-size: 1.2rem;"  for="School-Name" class="block text-sm/6 font-medium text-gray-900">School Name </label>
                 <div class="mt-2">
                   <input style="height:50px ;"  type="text" name="School-Name" id="School-Name" autocomplete="given-name" class="School-Name block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                  <p id="scoulerr"></p>
                 </div>
               </div>
       
@@ -181,13 +213,15 @@
                 <label style="font-size: 1.2rem;"  for="School-Location" class="block text-sm/6 font-medium text-gray-900">School Location</label>
                 <div class="mt-2">
                   <input style="height:50px ;"  type="text" name="School-Location" id="School-Location" autocomplete="family-name" class="School-Location block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                  <p id="locationerr"></p>
                 </div>
               </div>
       
               <div class="sm:col-span-3">
                 <label style="font-size: 1.2rem;"  for="Degree" class="block text-sm/6 font-medium text-gray-900">Degree</label>
                 <div class="mt-2">
-                  <input style="height:50px ;"  id="Degree" name="Degree" type="Degree" autocomplete="Degree" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                  <input style="height:50px ;"  id="Degree" name="Degree" type="Degree" autocomplete="Degree" class="Degree block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                   <p id="legreeer"></p>
                 </div>
               </div>
   
@@ -195,13 +229,15 @@
                 <label style="font-size: 1.2rem;"  for="Field-of-Study" class="block text-sm/6 font-medium text-gray-900">Field of Study</label>
                 <div class="mt-2">
                   <input style="height:50px ;"  id="Field-of-Study" name="Field-of-Study" type="Field-of-Study" autocomplete="Field-of-Study" class="Field-of-Study block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                  <p id="Field"></p>
                 </div>
               </div>
-      
+
               <div class="sm:col-span-2 ">
                 <label style="font-size: 1.2rem;"  for="Start-dateEt" class="block text-sm/6 font-medium text-gray-900">Start date</label>
                 <div class="mt-2">
                   <input style="height:50px ;"  type="date" name="Start-date" id="Start-dateEt" autocomplete="address-level2" class="start-date Start-date block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                  <p id="Start"></p>
                 </div>
               </div>
       
@@ -209,6 +245,7 @@
                 <label style="font-size: 1.2rem;"  for="End-dateEt" class="block text-sm/6 font-medium text-gray-900">End date</label>
                 <div class="mt-2">
                   <input style="height:50px ;"  type="date" name="End-date" id="End-dateEt" autocomplete="End-date" class="end-date End-date block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+                  <p id="End"></p>
                 </div>
               </div>
   
@@ -216,6 +253,7 @@
                 <label style="font-size: 1.2rem;"  for="etudDiscription" class="etudDiscription block text-sm/6 font-medium text-gray-900">Description</label>
                 <div class="mt-2">
                   <textarea class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" name="End-date" id="etudDiscription" autocomplete="End-date" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"> </textarea> 
+                  <p id="discription-err"></p>
                 </div>
               </div>
             </div>
@@ -239,11 +277,11 @@
         <h2 class="text-base/7 font-semibold text-gray-900 text-center">What skills would you like to highlight?</h2>
         <p class="mt-1 text-sm/6 text-gray-600 text-center">Add relevant professional skills</p>
   
-        <div id="skillskill" class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div id="skillskill" class="mt-10  grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
             <label style="font-size: 1.2rem;"  for="Skill-1" class="block text-sm/6 font-medium text-gray-900">Skill </label>
             <div class="mt-2">
-              <input style="height:50px ;"  type="text" name="Skill-1" id="Skill-1" autocomplete="given-name" class="Skill block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
+              <input style="height:50px ;"  type="text" name="Skill-1" id="Skill-1" autocomplete="given-name" class="Skill-1 Skill block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-400 sm:text-sm/6">
               <p id="skillmessage"></p>
             </div>
           </div>
@@ -289,7 +327,7 @@
   <!--skills end  -->
 
   <!-- cv 2 -->
-  <section class="bg-gray-100 text-gray-800 " id="FormSomary">
+  <section class="bg-gray-100 text-gray-800 hidden" id="FormSomary">
     <div class="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
         <!-- Header -->
         <header class="flex flex-col items-center">
@@ -348,6 +386,8 @@
             
         </section>
     </div>
+    <!-- <button id="dawlond" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Default</button> -->
+
     <button style="height:50px ; width: 10rem;" id="btndwlond" style="background: rgba(15, 106, 175, 0.779);">dawlond naw</button>
 </section>
 
