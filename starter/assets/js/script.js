@@ -27,9 +27,16 @@ let BtnChoix = document.getElementById("BtnChoix");//le button choix
 let step1 = document.getElementById("step1")
 btnchoix.addEventListener('click',() => {
   // let radioselected = document.querySelector('input[name="default-radio"]:checked');
-    step1.style.backgroundColor = 'blue'
+    // step1.style.backgroundColor = 'blue'
     Formchoix.classList.add('hidden');
     FormPirsonelle.classList.remove("hidden");
+
+    //event step bar 
+    currentStep++;
+    if (currentStep > steps.length) {
+      currentStep = steps.length;
+    }
+    update();
     //opiration de step 
    
     
@@ -53,6 +60,7 @@ let FormExpirience = document.getElementById("FormExpirience"); //form expirince
 let FormExpirienceadd = document.getElementById("FormExpirienceadd");
 // let copyFormex =  FormExpirienceadd.cloneNode(true);
 BtnPrsonelNext.addEventListener('click',() => {
+
     let AddWork = document.getElementById("AddWork"); // button ajoutee un new work 
     let validNome = /\w+\s\w+/;
     let Email = /\w+@gmail.com/;
@@ -99,6 +107,12 @@ BtnPrsonelNext.addEventListener('click',() => {
   else{
     FormPirsonelle.classList.add("hidden");
     FormExpirience.classList.remove("hidden");
+    // stepe bar move 
+    currentStep++;
+    if (currentStep > steps.length) {
+      currentStep = steps.length;
+    }
+    update();
   }
    
 
@@ -129,6 +143,9 @@ BtnPrsonelNext.addEventListener('click',() => {
         telModirn.innerHTML = Phone.value;   
 
     // console.log(FirstName.value,LastName.value,email.value,city.value,Phone.value);
+
+    //dtep bar move 
+  
 })
 
 //LES education form
@@ -209,6 +226,13 @@ for (let i = 0; i < conteur; i++) {
   if (isError == false) {
     FormExpirience.classList.add("hidden");
     FormEtudient.classList.remove("hidden");
+
+    //step bar move 
+      currentStep++;
+     if (currentStep > steps.length) {
+       currentStep = steps.length;
+     }
+     update();
   }
 }
 
@@ -288,7 +312,9 @@ for (let i = 0; i < conteur; i++) {
     
     // // Emplo.innerHTML = Employer.value;
     // discr.innerHTML = workSom.value
-
+   
+     //stip bar move 
+   
 
 
 })
@@ -298,6 +324,8 @@ let btnAddSkils = document.getElementById("btnAddSkils")
 let BtnetudentNext = document.getElementById("BtnetudentNext"); //button etudent next  
 let FormSkille = document.getElementById("FormSkille"); //form skille
 let FormSkilleAdd = document.getElementById("FormSkilleAdd");
+
+
 //event next
 BtnetudentNext.addEventListener('click', () => {
   //les variable
@@ -379,6 +407,17 @@ BtnetudentNext.addEventListener('click', () => {
     //   Field.textContent = "";
     // }
 
+    
+
+    // event add new skills 
+     btnAddSkils.addEventListener('click', () => {
+      const nodoOriginal = document.getElementById("skillCopy");
+      const nodoClonado = nodoOriginal.cloneNode(true);
+      conteur2++;
+      FormSkilleAdd.appendChild(nodoClonado);
+       
+    })
+
     if (isError == false) {
       FormSkille.classList.remove('hidden');
       FormEtudient.classList.add("hidden");
@@ -425,7 +464,15 @@ BtnetudentNext.addEventListener('click', () => {
     `;
     scolsc.appendChild(NewWorkExpirence);
   });
+
+  // step bar move 
+  currentStep++;
+  if (currentStep > steps.length) {
+    currentStep = steps.length;
+  }
+  update();
 });
+
 
 
 let btnSkillNext = document.getElementById("btnSkillNext"); //button skille next 
@@ -585,9 +632,81 @@ else if (radioselected.value === 'modirn'){
           console.error('false:', error.message);
       }
   });
+  // STEP BAR MOVE 
+  currentStep++;
+  if (currentStep > steps.length) {
+    currentStep = steps.length;
+  }
+  update();
 })
 
 
 
 
+
+const progress = document.querySelector("#progress");
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
+const circles = document.querySelectorAll(".circle");
+
+let currentActive = 1;
+
+next.addEventListener("click", () => {
+  currentActive++;
+
+  if (currentActive > circles.length) {
+    currentActive = circles.length;
+  }
+
+  update();
+});
+
+prev.addEventListener("click", () => {
+  currentActive--;
+
+  if (currentActive < 1) {
+    currentActive = 1;
+  }
+
+  update();
+});
+
+
+
+// les variabl
+const progresss = document.getElementById('progress');
+const prevv = document.getElementById('prev');
+const nextt = document.getElementById('next');
+const steps = document.querySelectorAll('.flex .w-8');
+
+let currentStep = 1;
+
+// fonction de move step 
+function update() {
+  steps.forEach((step, index) => {
+    if (index < currentStep) {
+      step.classList.add('border-blue-500');
+      step.classList.remove('border-gray-300');
+    } else {
+      step.classList.add('border-gray-300');
+      step.classList.remove('border-blue-500');
+    }
+  });
+
+  progress.style.width = ((currentStep - 1) / (steps.length - 1)) * 100 + '%';
+
+  prev.disabled = currentStep === 1;
+  next.disabled = currentStep === steps.length;
+}
+
+
+prev.addEventListener('click', () => {
+  currentStep--;
+  if (currentStep < 1) {
+    currentStep = 1;
+  }
+  update();
+});
+
+update();
 
