@@ -118,11 +118,24 @@ BtnPrsonelNext.addEventListener('click',() => {
 
   //event de add neveu work expieince 
     AddWork.addEventListener('click',() => {
+      
       conteur++ ;
       const nodoOriginal = document.getElementById("formcopy");
       const nodoClonado = nodoOriginal.cloneNode(true);
+      const btndelet = document.createElement('button')
+      btndelet.textContent = 'delet'
+      btndelet.style.background = 'red';
+      btndelet.style.color = 'white';
+      btndelet.style.width = '5rem'
+      btndelet.style.marginTop = '20px'
+      nodoClonado.appendChild(btndelet)
        FormExpirienceadd.appendChild(nodoClonado);
        
+       btndelet.addEventListener('click', (e) => {
+        e.preventDefault();
+        FormExpirienceadd.removeChild(nodoClonado);
+        conteur--;
+       })
        
     }) 
 
@@ -292,8 +305,23 @@ for (let i = 0; i < conteur; i++) {
     AddNewEtudent.addEventListener('click',() => {
       const nodoOriginal = document.getElementById("FormEtudientcopy");
       const nodoClonado = nodoOriginal.cloneNode(true);
+      const btndelet = document.createElement('button')
+      btndelet.textContent = 'delet'
+      btndelet.style.background = 'red';
+      btndelet.style.color = 'white';
+      btndelet.style.width = '5rem'
+      btndelet.style.marginTop = '20px'
+      nodoClonado.appendChild(btndelet)
       FormEtudientAdd.appendChild(nodoClonado);
       conteur1++;
+
+      btndelet.addEventListener('click', (e) => {
+        e.preventDefault();
+        FormEtudientAdd.removeChild(nodoClonado);
+        conteur1--;
+       })
+
+     
 
     })
     
@@ -414,7 +442,20 @@ BtnetudentNext.addEventListener('click', () => {
       const nodoOriginal = document.getElementById("skillCopy");
       const nodoClonado = nodoOriginal.cloneNode(true);
       conteur2++;
+      const btndelet = document.createElement('button')
+      btndelet.textContent = 'delet'
+      btndelet.style.background = 'red';
+      btndelet.style.color = 'white';
+      btndelet.style.width = '5rem'
+      btndelet.style.marginTop = '20px'
+      nodoClonado.appendChild(btndelet)
       FormSkilleAdd.appendChild(nodoClonado);
+
+      btndelet.addEventListener('click', (e) => {
+        e.preventDefault();
+        FormSkilleAdd.removeChild(nodoClonado);
+        conteur2--;
+       })
        
     })
 
